@@ -7,9 +7,9 @@ const categories = {
     bgColor: "#0A6776",
     title: "Flow Data",
     cards: [
-      { label: "Waste Water Flow", value: "22 mph" },
-      { label: "Storm Water Flow", value: "22 mph" },
-      { label: "Peak Flow", value: "22 mph" },
+      { label: "Waste Water Flow", value: "22" },
+      { label: "Storm Water Flow", value: "22" },
+      { label: "Peak Flow", value: "22" },
     ],
     chartTitle: "Flow Data Chart",
     chartLabels: ["Waste Water Flow", "Storm Water Flow", "Peak Flow"],
@@ -18,9 +18,9 @@ const categories = {
     bgColor: "#002D62",
     title: "Event Data",
     cards: [
-      { label: "Storm Data", value: "22 mph" },
-      { label: "Combined Sewer Overflow", value: "22 mph" },
-      { label: "Flooding Incidents", value: "22 mph" },
+      { label: "Storm Data", value: "22" },
+      { label: "Combined Sewer Overflow", value: "22" },
+      { label: "Flooding Incidents", value: "22" },
     ],
     chartTitle: "Event Data Chart",
     chartLabels: ["Storm Data", "Combined Sewer Flow", "Flooding Incidents"],
@@ -29,8 +29,8 @@ const categories = {
     bgColor: "#8851FF",
     title: "Energy and Resource Management Data",
     cards: [
-      { label: "Energy Consumption", value: "22 mph" },
-      { label: "Waste and Byproduct Data", value: "22 mph" },
+      { label: "Energy Consumption", value: "22" },
+      { label: "Waste and Byproduct Data", value: "22" },
     ],
     chartTitle: "Energy and Resource Management Data",
     chartLabels: ["Energy Consumption", "Waste and Byproduct Data"],
@@ -171,9 +171,9 @@ export default function FlowDataCharts() {
             <div className="flex border pe-24 space-x-6 rounded-lg bg-white h-20">
                 <Image src={Vector} alt="" width={60} height={50} className='object-fill '/>
                 <div className=" flex flex-col gap-y-1 justify-center ">
-                    <p>Waste Water Flow</p>
+                    <p>{card.label}</p>
                     <div className="w-20 h-1  rounded-xl bg-[#0380C6]"/>
-                    <p className="text-xl"><span className="font-bold ">22</span>mph</p>
+                    <p className="text-xl"><span className="font-bold ">{card.value}</span>mph</p>
                 </div>
                 <div className="flex gap-x-2 h-6 w-6 items-center my-auto">
                     <Image src={GoogleMaps} alt="" />

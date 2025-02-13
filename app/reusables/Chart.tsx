@@ -42,9 +42,7 @@ export default function Chart() {
       <BarChart accessibilityLayer data={chartData}>
       <LabelList className="fill-[--color-projected_evacuation]"  />
       <CartesianGrid vertical={false} />
-
             <XAxis
-
               dataKey="month"
               tickLine={true}
               tickMargin={10}
