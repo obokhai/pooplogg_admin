@@ -26,7 +26,7 @@ const categories = {
     chartLabels: ["Storm Data", "Combined Sewer Flow", "Flooding Incidents"],
   },
   energyData: {
-    bgColor: "#0024FF",
+    bgColor: "#8851FF",
     title: "Energy and Resource Management Data",
     cards: [
       { label: "Energy Consumption", value: "22 mph" },
@@ -152,12 +152,12 @@ export default function FlowDataCharts() {
   return (
     <section className="mt-8 px-28 py-5" style={{ backgroundColor: categories[selectedCategory].bgColor }}>
         <div id='top_section' className='flex justify-between'>
-            <button className='rounded-full border border-[#0380C6] text-[#0380C6] px-2 bg-white'>{categories[selectedCategory].title}</button>
+            <button className='rounded-full border text-[#1D5177] px-4 text-sm bg-white'>{categories[selectedCategory].title}</button>
             <div className='gap-x-2 flex items-center'>
             <select
               onChange={(e) => setSelectedCategory(e.target.value)}
               value={selectedCategory}
-              className="p-2 rounded-md border"
+              className="p-2 rounded-md border text-sm font-light"
             >
               <option value="flowData">Flow Data</option>
               <option value="eventData">Event Data</option>
@@ -167,48 +167,26 @@ export default function FlowDataCharts() {
             </div>
         </div>
         <div className="flex justify-between mt-12" id="water_flow_section">
-            <div className="flex border items-center pe-24 space-x-3 rounded-lg bg-white">
-                <Image src={Vector} alt="" width={60} height={50} className='object-cover '/>
-                <div className="flex-col gap-y-2 justify-center py-3 ">
+        {categories[selectedCategory].cards.map((card, index) => (
+            <div className="flex border pe-24 space-x-6 rounded-lg bg-white h-20">
+                <Image src={Vector} alt="" width={60} height={50} className='object-fill '/>
+                <div className=" flex flex-col gap-y-1 justify-center ">
                     <p>Waste Water Flow</p>
-                    <div className="w-20 h-2 rounded-xl bg-[#0380C6]"/>
+                    <div className="w-20 h-1  rounded-xl bg-[#0380C6]"/>
                     <p className="text-xl"><span className="font-bold ">22</span>mph</p>
                 </div>
-                <div className="flex gap-x-2 h-6 w-6 items-center">
+                <div className="flex gap-x-2 h-6 w-6 items-center my-auto">
                     <Image src={GoogleMaps} alt="" />
                     <p>Lagos</p>
                 </div>
             </div>
-            <div className="flex border items-center pe-24 space-x-3 rounded-lg bg-white">
-                <Image src={Vector} alt="" width={60} height={50} />
-                <div className="flex-col gap-y-2 justify-center py-3 ">
-                    <p>Waste Water Flow</p>
-                    <div className="w-20 h-2 rounded-xl bg-[#0380C6]"/>
-                    <p className="text-xl"><span className="font-bold ">22</span>mph</p>
-                </div>
-                <div className="flex gap-x-2 h-6 w-6 items-center">
-                    <Image src={GoogleMaps}  alt="" />
-                    <p>Lagos</p>
-                </div>
-            </div>
-            <div className="flex border items-center pe-24 space-x-3 rounded-lg bg-white">
-                <Image src={Vector} alt="" width={60} height={50} />
-                <div className="flex-col gap-y-2 justify-center py-3 ">
-                    <p>Waste Water Flow</p>
-                    <div className="w-20 h-2 rounded-xl bg-[#0380C6]"/>
-                    <p className="text-xl"><span className="font-bold ">22</span>mph</p>
-                </div>
-                <div className="flex gap-x-2 h-6 w-6 items-center">
-                    <Image src={GoogleMaps} alt="" />
-                    <p>Lagos</p>
-                </div>
-            </div>
+             ))}
         </div>
         <div id="Flow_Data_Radar" className="flex mt-12 gap-x-20 items-center">
             <div className="w-2/4 min-h-52 " id="flow_data_chart">
             <Card>
                 <CardHeader>
-                    <CardTitle>Flow Data Chart</CardTitle>
+                    <CardTitle>{categories[selectedCategory].title}</CardTitle>
                     <CardDescription>January - June 2024</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -271,7 +249,7 @@ export default function FlowDataCharts() {
             <div id="radar_data_chart" className="w-2/4 h-full">
             <Card>
                 <CardHeader className="items-center pb-4">
-                    <CardTitle className="flex gap-20 justify-between items-center"> Flow Radar Chart
+                    <CardTitle className="flex gap-20 justify-between items-center"> {categories[selectedCategory].title}
                     <select name="cars" id="cars" className="text-sm font-light border-2 p-2 border-slate-300  rounded-2xl"><ChevronDown /> 
                         <option value="volvo">Select Category </option>
                         <option value="saab">Saab</option>
