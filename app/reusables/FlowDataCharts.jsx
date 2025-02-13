@@ -137,7 +137,7 @@ const chartConfig = {
       label: "Peak Flow",
       color: "#7E42FF",
     },
-  } satisfies ChartConfig ;
+  }
 
 
 import { CalendarDays, ChevronDownIcon } from "lucide-react"
